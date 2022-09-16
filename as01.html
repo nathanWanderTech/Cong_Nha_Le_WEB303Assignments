@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+	<!-- WEB303 Assignment 1 - jQuery -->
+	<meta charset="utf-8" />
+	<title>Tech Calculator</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<h1>Tech Calculator</h1>
+	<form>
+		<fieldset>
+			<label>Salary
+				<input type="number" id="yearly-salary" placeholder="Yearly Salary" autofocus="autofocus"
+					min="1" /></label>
+			<label>Percent
+				<input type="number" id="percent" placeholder="Percentage to spend" min="1" max="100"
+					value="0" /></label>
+		</fieldset>
+		<p id="errorMess" style="display: none; color: red; text-align: center; font-size: 19px">Percent must be number
+			between 0 and
+			100</p>
+		<p>You can spend <span id="amount">$0</span> on tech this year.</p>
+		<p>Have fun!</p>
+	</form>
+
+	<script src="jquery.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
