@@ -1,6 +1,6 @@
 /*
     Assignment #4
-    {Your name here}
+    Cong Nha Le - 0761950
 */
 
 $(function () {

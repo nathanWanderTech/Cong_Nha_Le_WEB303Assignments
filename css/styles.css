@@ -14,7 +14,7 @@ body {
 }
 header {
 	height: 100px;
-	background: url('images/logo.gif') no-repeat 25px;
+	background: url('../images/logo.gif') no-repeat 25px;
 }
 nav	{
 	width: 235px;
@@ -26,7 +26,7 @@ nav ul {
 nav ul li a:link, nav ul li a:visited, #content h2 {
 	font-size: 14px;
 	font-weight: bold;
-	background: #dfe3e6 url('images/bullet.gif') no-repeat 7px center;
+	background: #dfe3e6 url('../images/bullet.gif') no-repeat 7px center;
 	padding: 3px 0 3px 20px;
 	border: solid #929ca4 1px;
 	color: #cc1c0d;
@@ -53,6 +53,6 @@ h3, h4 {
 }
 footer {
 	height: 35px;
-	background: url('images/footer.gif');
+	background: url('../images/footer.gif');
 	clear: both;
 }
