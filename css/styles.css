@@ -14,7 +14,7 @@ body {
 }
 header {
 	height: 100px;
-	background: url('../images/logo.gif') no-repeat 25px;
+	/* background: url('../images/logo.gif') no-repeat 25px; */
 }
 nav	{
 	width: 235px;

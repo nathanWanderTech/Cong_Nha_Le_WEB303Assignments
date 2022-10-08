@@ -25,6 +25,80 @@ function calcDistanceBetweenPoints(lat1, lon1, lat2, lon2) {
 
 $(function () {
 	// your code here
+	const LOCATION_KEY = 'JS-2-assignment-4-location-key';
 
-    
+	const getLocation = (successCallback) => {
+		navigator.geolocation.getCurrentPosition(successCallback);
+	};
+
+	/**
+	 * @param {number} latitude
+	 * @param {number} longitude
+	 */
+	const showCurrentLocation = (location) => {
+		const { latitude, longitude, accuracy } = location.coords;
+		const $locationEle = $('div#locationhere');
+		const html = `<h4>Your current location:</br> Latitude ${latitude} </br> Longitude ${longitude} </br>Accuracy: ${accuracy}</h4>`;
+		$locationEle.html(html);
+	};
+
+	/**
+	 * @param {number} latitude
+	 * @param {number} longitude
+	 */
+	const showStoredLocation = (location) => {
+		const { latitude, longitude, accuracy } = location.coords;
+		const $locationEle = $('div#locationhere');
+		const html = `<h5 style="color: red">Your last location:</br> Latitude ${latitude} </br>Longitude ${longitude}</br>Accuracy: ${accuracy}</h5>`;
+		$locationEle.append(html);
+	};
+
+	const showHeaderMessage = (message) => {
+		$('header').html(`<h2>${message}</h2>`);
+	};
+
+	const showTraveledDistance = (currentLocation, lastLocation) => {
+		const { latitude: lat1, longitude: lon1 } = currentLocation.coords;
+		const { latitude: lat2, longitude: lon2 } = lastLocation.coords;
+		const traveledDistance = calcDistanceBetweenPoints(lat1, lon1, lat2, lon2)/1000;
+		const html = `<h4>You have traveled ${traveledDistance} Km</h4>`;
+		$('header').append(html);
+	};
+
+	/**
+	 * @param {string} key
+	 * @returns string | null
+	 */
+	const getLocalStorage = (key) => {
+		return localStorage.getItem(key);
+	};
+
+	/**
+	 * @param {string} key
+	 * @param {object} location
+	 */
+	const setLocalStorage = (key, location) => {
+		localStorage.setItem(
+			key,
+			JSON.stringify({ coords: { latitude: location.coords.latitude, longitude: location.coords.longitude, accuracy: location.coords.accuracy } })
+		);
+	};
+
+	const onSuccess = (location) => {
+		showCurrentLocation(location);
+		const storedLocation = getLocalStorage(LOCATION_KEY);
+
+		if (storedLocation) {
+			const storedLocationObject = JSON.parse(storedLocation);
+			showStoredLocation(storedLocationObject);
+			showHeaderMessage('WELCOME BACK');
+			showTraveledDistance(location, storedLocationObject);
+		} else {
+			showHeaderMessage('WELCOME TO THE PAGE');
+		}
+
+		setLocalStorage(LOCATION_KEY, location);
+	};
+
+	getLocation(onSuccess);
 });
