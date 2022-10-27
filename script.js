@@ -15,7 +15,8 @@ $(document).ready(function () {
 	// your code here
 	$contentBlock = $('div#content-item-list');
 	rangersArr.forEach((item) => {
-		$contentBlock.append(item.toString());
-        
+		const $node = $($.parseHTML(item.toString()));
+		$node.css({ border: '1px solid blue', width: '300px', padding: '10px', margin: '10px auto' });
+		$contentBlock.append($node);
 	});
 });
