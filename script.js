@@ -11,12 +11,38 @@ const pinkRanger = new ContentItem(5, 'Pink Ranger', " The first Pink Ninja Rang
 
 const rangersArr = [redRanger, blueRanger, blackRanger, yellowRanger, pinkRanger];
 
-$(document).ready(function () {
-	// your code here
-	$contentBlock = $('div#content-item-list');
-	rangersArr.forEach((item) => {
+function render(arr) {
+    $contentBlock.html('');
+	arr.forEach((item) => {
 		const $node = $($.parseHTML(item.toString()));
 		$node.css({ border: '1px solid blue', width: '300px', padding: '10px', margin: '10px auto' });
 		$contentBlock.append($node);
 	});
+}
+
+/*Update name with its index number in array*/
+function updateSuccess () {
+    const updatedArr = rangersArr.map((item, index) => {
+        item.updateContentItem(item.id, `${item.name} - Index number ${index}`);
+        return item;
+    })
+    render(updatedArr);
+}
+
+/*Update Fail because id is different*/
+function updateFail () {
+    const updatedArr = rangersArr.map((item, index) => {
+        item.updateContentItem(index, `${item.name} - Index number ${index}`);
+        return item;
+    });
+    render(updatedArr);
+}
+
+$(document).ready(function () {
+	// your code here
+	$contentBlock = $('div#content-item-list');
+	render(rangersArr);
+
+    $('button#update-yes').on('click', updateSuccess);
+    $('button#update-no').on('click', updateFail);
 });
