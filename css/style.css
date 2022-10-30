@@ -1,4 +1,137 @@
-html, body{
-    margin: 0;
-    padding: 0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+p {
+	line-height: 1.3rem;
+	margin-bottom: 1rem;
+}
+
+/* Accordion */
+.accordion-panel {
+	display: none;
+}
+
+/* TAB */
+
+
+.tab-panel {
+	display: none;
+}
+
+.tab-panel.active {
+	display: block;
+}
+
+/* STYLE */
+
+body {
+	background-color: black;
+	color: white;
+	font-size: 16px;
+}
+
+h1,
+h2 {
+	text-align: center;
+	padding: 1rem;
+	color: aquamarine;
+}
+
+.accordion {
+	margin: 0 auto;
+	width: 90%;
+	border: 1px solid aquamarine;
+	padding: 1rem;
+}
+
+.accordion li {
+	background-color: aquamarine;
+	margin-bottom: 1rem;
+	padding: 1rem;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+	font-size: 21px;
+	color: red;
+	cursor: pointer;
+	margin-bottom: 1rem;
+}
+
+.accordion-panel p {
+	color: black;
+}
+
+section {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid aquamarine;
+}
+
+.tab-panel-style-1 {
+	min-height: 400px;
+    padding: 1rem;
+}
+
+.tab-panel-style-1 img {
+	margin: 1rem auto;
+	display: block;
+}
+
+.tab-list {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+.tab-list li {
+    width: calc((100%/3));
+    padding: 1rem;
+    background-color: blueviolet;
+    text-align: center;
+    border-bottom: 1px solid aquamarine;
+}
+
+.tab-list li:nth-child(2) {
+    border-left: 1px solid aquamarine;
+    border-right: 1px solid aquamarine;
+}
+
+.tab-list li a {
+    text-decoration: none;
+    color: aquamarine;
+}
+
+.tab-list li.active {
+    background-color: burlywood;
+}
+.tab-list li.active a {
+    color: palevioletred;
+}
+
+
+.tab-panel-style-2 {
+    height: 440px;
+    padding: 1rem;
+}
+
+.tab-panel-style-2 img {
+    height: 400px;
+    margin-right: 1rem;
+}
+
+footer {
+    background-color: aquamarine;
+    margin-top: 3rem;
+    padding: 1rem;
+    color: black;
+    text-align: center;
 }
