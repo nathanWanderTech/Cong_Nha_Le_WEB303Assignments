@@ -2,7 +2,6 @@ let request; //Latest image to be requested
 let $current; //Image currently being shown
 const cache = {};
 const $frame = $('.photo-box'); //Container for image
-const $thumbs = $('.thumb'); //Container for thumbnail
 
 function crossfade($img) {
 	//Function to fade between images, pass new image as param
@@ -24,14 +23,13 @@ function crossfade($img) {
 $.fn.customPhotoViewer = function () {
 	$(document).on('click', '.thumbnail-anchor', function (e) {
 		//When a thumb is clicked on
-		console.log('Click on thumbnail-anchor');
 		var $img; //Create local variable called $img
 		var src = this.href; //Store path to image
 
 		request = src; //Store path again in request
 
 		e.preventDefault(); //Stop default link behavior
-		$thumbs.removeClass('active'); //Remove active from al l thumbs
+        $(".photo-thumbnails>a.active").removeClass("active");
 		$(this).addClass('active'); //Add active to clicked thumb
 
 		if (cache.hasOwnProperty(src)) {

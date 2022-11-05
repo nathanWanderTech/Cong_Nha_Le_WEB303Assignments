@@ -26,5 +26,7 @@
   width: 80px;
   height: 45px;
 }
-#photo-viewer .thumbnail-anchor img.active {
+#photo-viewer .thumbnail-anchor.active {
+  border: 5px solid green;
+  border-radius: 8px;
 }
