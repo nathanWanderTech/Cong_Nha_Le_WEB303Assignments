@@ -9,3 +9,12 @@ $(function () {
         //modal code goes here
     });
 });
+
+/* CONG NHA LE - My code starts here */
+function changeH1TagWithMyName () {
+    $('h1').text('CONG NHA LE');
+}
+
+$(document).ready(function () {
+    changeH1TagWithMyName();
+})
