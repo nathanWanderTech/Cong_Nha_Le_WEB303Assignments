@@ -20,4 +20,5 @@ th {
 	padding-bottom: 12px;
 	background-color: cyan;
 	color: black;
+	cursor: pointer;
 }
