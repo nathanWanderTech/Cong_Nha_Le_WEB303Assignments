@@ -1,7 +1,14 @@
 let tableData = [];
 
+/* NOT IMPORTANT FUNCTIONS */
 function addMyNameIntoH1Tag() {
-	$('h1').text('Cong Nha Le - Game of Thrones');
+	$('h1').text('Cong Nha Le - Game of Thrones - Assignment 9');
+}
+
+function renderTableSkeleton() {
+	const html =
+		'<table><thead><tr><th>First name</th><th>Last name</th><th>Title</th><th>Family</th><th>Gender</th><th>Photo</th></tr></thead><tbody></tbody></table>';
+	$('body').append(html);
 }
 
 function addSearchFirstNameInput() {
@@ -9,6 +16,21 @@ function addSearchFirstNameInput() {
 		"<div style='width: 100%; text-align: right; height: 30px'><label for='searchByFirstName' style='font-size: 16px; margin-right: 10px'>Search by First Name</label><input type='text' name='searchByFirstName'></div>";
 	$('body').append(html);
 }
+
+function addFilterButton() {
+	const $buttonA2M = $('<button id="btnA2M">A - M</button>');
+	const $buttonN2Z = $('<button id="btnN2Z">N - Z</button>');
+	$buttonA2M.css({ padding: '10px', background: 'yellow', width: 100 });
+	$buttonN2Z.css({ padding: '10px', background: 'pink', margin: '20px', width: 100 });
+	$buttonA2M.on('click', function () {
+		handleFilterBtnA2M(tableData);
+	});
+	$buttonN2Z.on('click', function () {
+		handleFilterBtnN2Z(tableData);
+	});
+	$('#btnblock').append($buttonA2M).append($buttonN2Z);
+}
+/* END - NOT IMPORTANT FUNCTIONS */
 
 function regiserOnSearchFirstNameInput() {
 	const $input = $("input[name='searchByFirstName']");
@@ -28,16 +50,10 @@ function fetchData() {
 	$.ajax({ dataType: 'json', url: 'data.json', success: onSuccess });
 }
 
-function renderTableSkeleton() {
-	const html =
-		'<table><thead><tr><th>First name</th><th>Last name</th><th>Title</th><th>Family</th><th>Gender</th><th>Photo</th></tr></thead><tbody></tbody></table>';
-	$('body').append(html);
-}
-
 function renderTableRows(data) {
-	let html = [];
+	const html = [];
 	data.forEach((item) => {
-		const $row = $(`<tr style='${item.highLight && `background: darkgreen; color: white`}'>
+		const $row = $(`<tr>
         <td>${item.first_name}</td>
         <td>${item.last_name}</td>
         <td>${item.title}</td>
@@ -45,23 +61,10 @@ function renderTableRows(data) {
         <td>${item.gender}</td>
         <td><img src="${item.photo}" alt="${item.first_name}"></td>
     </tr>`);
+		if (item.highLight) $row.css({ background: 'darkgreen', color: 'white' });
 		html.push($row);
 	});
 	$('tbody').empty().append(html);
-}
-
-function addFilterButton() {
-	const $buttonA2M = $('<button id="btnA2M">A - M</button>');
-	const $buttonN2Z = $('<button id="btnN2Z">N - Z</button>');
-	$buttonA2M.css({ padding: '10px', background: 'yellow', width: 100 });
-	$buttonN2Z.css({ padding: '10px', background: 'pink', margin: '20px', width: 100 });
-	$buttonA2M.on('click', function () {
-		handleFilterBtnA2M(tableData);
-	});
-	$buttonN2Z.on('click', function () {
-		handleFilterBtnN2Z(tableData);
-	});
-	$('#btnblock').append($buttonA2M).append($buttonN2Z);
 }
 
 function handleFilterBtnA2M(dataArr) {
