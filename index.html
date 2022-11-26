@@ -6,10 +6,40 @@
 
 <body>
     <h1>
-        CONG NHA LE - 0761950
+        CONG NHA LE - 0761950 - Assingment 10
     </h1>
 
+    <form id="registerForm" action="/register" method="post" name="register">
+        <div>
+            <label for="username" class="required">Username:</label>
+            <input type="text" placeholder="Enter your username" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="password" class="required">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <label for="conf-password" class="required">Confirm password:</label>
+            <input type="password" name="conf-password" id="conf-password" required>
+        </div>
+
+        <div id="consent-container" class="hide">
+            <label for="consent">I accept the terms of service</label>
+            <input required type="checkbox" name="consent" id="consent" checked="false">
+        </div>
+
+        <div>
+            <label for="countries">Select your country:</label>
+            <select name="countries" id="countries" required>
+                <!-- Render option by JS -->
+            </select>
+        </div>
+
+        <input type="submit" id="submit" value="submit" />
+    </form>
+
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/countries.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 

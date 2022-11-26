@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+#submit {
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+}
+
+#submit.disabled {
+	background-color: #999;
+}
+#submit.disabled:hover {
+	background-color: #999;
+	text-shadow: none;
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+form > div {
+	margin: 16px 0;
+}
+
+.error.message {
+	color: red;
+	margin-left: 1rem;
+}
