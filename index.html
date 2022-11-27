@@ -25,12 +25,13 @@
 
         <div id="consent-container" class="hide">
             <label for="consent">I accept the terms of service</label>
-            <input required type="checkbox" name="consent" id="consent" checked="false">
+            <input required type="checkbox" name="consent" id="consent">
         </div>
 
         <div>
             <label for="countries">Select your country:</label>
             <select name="countries" id="countries" required>
+                <option selected value="not valid">Select your country</option>
                 <!-- Render option by JS -->
             </select>
         </div>
@@ -38,7 +39,11 @@
         <input type="submit" id="submit" value="submit" />
     </form>
 
+    <h2 id="welcomeMessage"></h2>
+
+    
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script type="text/javascript" src="js/countries.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
